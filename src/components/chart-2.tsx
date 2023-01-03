@@ -4,14 +4,26 @@ import { px } from "../shared/px";
 import { baseEchartOptions } from "../shared/base-echart-options";
 import { createEchartOptions } from "../shared/create-echart-options";
 
-export const Chart1 = () => {
+export const Chart2 = () => {
   const divRef = useRef(null);
   useEffect(() => {
     var myChart = echarts.init(divRef.current);
     myChart.setOption(
       createEchartOptions({
         ...baseEchartOptions,
+        grid: {
+          x: px(20),
+          y: px(20),
+          x2: px(20),
+          y2: px(10),
+          containLabel: true,
+        },
         xAxis: {
+          type: "value",
+          boundaryGap: [0, 0.01],
+        },
+        yAxis: {
+          type: "category",
           data: [
             "武侯区",
             "金牛区",
@@ -23,30 +35,17 @@ export const Chart1 = () => {
             "温江区",
             "郫都区",
           ],
-          axisTick: { show: false },
-          axisLabel: {
-            fontSize: px(12),
-            formatter(val) {
-              if (val.length > 2) {
-                const array = val.split("");
-                array.splice(2, 0, "\n");
-                return array.join("");
-              }
-            },
-          },
-        },
-
-        yAxis: {
-          splitLine: { show: false },
-          axisLine: {
-            show: true,
-            lineStyle: { color: "#083B70" },
-          },
         },
         series: [
           {
+            name: "上月破案排名",
             type: "bar",
-            data: [100, 57, 36, 150, 30, 12, 24, 36, 48],
+            data: [42, 41, 36, 65, 35, 18, 24, 36, 40],
+          },
+          {
+            name: "本月破案排名",
+            type: "bar",
+            data: [49, 57, 36, 55, 30, 12, 20, 39, 48],
           },
         ],
       })
@@ -54,7 +53,7 @@ export const Chart1 = () => {
   }, []);
   return (
     <div className="bordered 管辖统计">
-      <h2>案发派出所管辖统计</h2>
+      <h2>案件破获排名</h2>
       <div ref={divRef} className="chart"></div>
     </div>
   );
