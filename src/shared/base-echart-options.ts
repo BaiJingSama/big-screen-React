@@ -8,9 +8,9 @@ export const baseEchartOptions = {
   title: { show: false },
   legend: { show: false },
   grid: {
-    x: 0,
+    x: px(10),
     y: px(20),
-    x2: 0,
+    x2: px(20),
     y2: px(10),
     containLabel: true,
   },
