@@ -42,7 +42,10 @@ export const Home = () => {
         </section>
         <section className="bordered section5"></section>
       </main>
-      <footer>&copy; 白境制作，只作展示，其余用途无效 2022-{year}</footer>
+      <footer>
+        &copy; 白境制作，数据地名均为虚拟，该页面只作为展示，其余用途无效 2022-
+        {year}
+      </footer>
     </div>
   );
 };
