@@ -21,29 +21,37 @@ export const Chart2 = () => {
         xAxis: {
           type: "value",
           boundaryGap: [0, 0.01],
+          splitLine: { show: false },
+          axisLabel: { show: false },
         },
         yAxis: {
+          axisTick: { show: false },
           type: "category",
           data: [
-            "武侯区",
-            "金牛区",
-            "高新区",
-            "成华区",
-            "锦江区",
-            "双流区",
-            "龙泉驿区",
-            "温江区",
-            "郫都区",
+            "武侯区公安局",
+            "金牛区公安局",
+            "高新区公安局",
+            "成华区公安局",
+            "锦江区公安局",
+            "双流区公安局",
+            "龙泉驿区公安局",
+            "温江区公安局",
+            "郫都区公安局",
           ],
+          axisLabel: {
+            formatter(val) {
+              return val.replace("公安局", "\n公安局");
+            },
+          },
         },
         series: [
           {
-            name: "上月破案排名",
+            name: "2021年",
             type: "bar",
             data: [42, 41, 36, 65, 35, 18, 24, 36, 40],
           },
           {
-            name: "本月破案排名",
+            name: "2022年",
             type: "bar",
             data: [49, 57, 36, 55, 30, 12, 20, 39, 48],
           },
@@ -52,9 +60,13 @@ export const Chart2 = () => {
     );
   }, []);
   return (
-    <div className="bordered 管辖统计">
+    <div className="bordered 破获排名">
       <h2>案件破获排名</h2>
-      <div ref={divRef} className="chart"></div>
+      <div ref={divRef} className="chart" />
+      <div className="legend">
+        <span className="first" /> 破案排名1
+        <span className="second" /> 破案排名2
+      </div>
     </div>
   );
 };
