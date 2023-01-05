@@ -131,17 +131,19 @@
         display: flex;
         flex-direction: column;
       }
-      &-图1 {
+      &-图1,
+      &-图2 {
         .legend {
           height: px(40);
           display: flex;
+          flex-wrap: wrap;
           align-items: center;
           justify-content: center;
           > span {
             display: inline-block;
-            width: px(40);
-            height: px(20);
-            border-radius: px(4);
+            width: px(16);
+            height: px(10);
+            border-radius: px(2);
             margin: 0 px(10);
           }
           .male {
@@ -169,90 +171,97 @@
           }
         }
       }
-      .籍贯 {
-        height: px(753);
-        background: transparent;
-        > .wrapper {
-          position: relative;
-          width: 100%;
-          flex: 1;
-          display: flex;
-          flex-direction: column;
-          .chart {
-            flex: 1;
-          }
-          .legend {
-            position: absolute;
-            top: px(40);
-            left: px(20);
-            display: flex;
-            align-items: center;
-            font-size: px(22);
-            padding: px(20) px(10) px(20) 0;
-            border-radius: 0;
-            .icon {
-              margin: 0 px(10);
-              display: inline-block;
-              width: px(16);
-              height: px(16);
-              border-radius: 50%;
-              background: #1cecd9;
-            }
-          }
-          .notes {
-            position: absolute;
-            bottom: px(10);
-            right: px(10);
-          }
-        }
-      }
-
-      .战果 {
-        > table {
-          margin-top: px(38);
-          border-collapse: collapse;
-          th,
-          td {
-            border: 1px solid #1a3671;
-          }
-          thead {
-            th {
-              height: px(70);
-              box-shadow: inset 0 0 px(60) 0 #1f3d85;
-            }
-          }
-          tbody {
-            td {
-              height: px(50);
-              width: px(84);
-              background: #1c2456;
-            }
-          }
-        }
-      }
-
-      .破获排名 {
-        height: px(423);
+      &-图2 {
+        width: px(290);
+        flex-shrink: 0;
         .legend {
+          justify-content: flex-start;
+        }
+      }
+    }
+    .籍贯 {
+      height: px(753);
+      background: transparent;
+      > .wrapper {
+        position: relative;
+        width: 100%;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        .chart {
+          flex: 1;
+        }
+        .legend {
+          position: absolute;
+          top: px(40);
+          left: px(20);
           display: flex;
           align-items: center;
-          justify-content: flex-end;
-          width: 100%;
-          padding: 0 px(20) px(10);
-          > .first,
-          > .second {
-            display: inline-block;
-            width: px(18);
-            height: px(12);
-            background: red;
+          font-size: px(22);
+          padding: px(20) px(10) px(20) 0;
+          border-radius: 0;
+          .icon {
             margin: 0 px(10);
+            display: inline-block;
+            width: px(16);
+            height: px(16);
+            border-radius: 50%;
+            background: #1cecd9;
           }
-          .first {
-            background: linear-gradient(90deg, #2034f9 0%, #04a1ff 100%);
+        }
+        .notes {
+          position: absolute;
+          bottom: px(10);
+          right: px(10);
+        }
+      }
+    }
+
+    .战果 {
+      > table {
+        margin-top: px(38);
+        border-collapse: collapse;
+        th,
+        td {
+          border: 1px solid #1a3671;
+        }
+        thead {
+          th {
+            height: px(70);
+            box-shadow: inset 0 0 px(60) 0 #1f3d85;
           }
-          .second {
-            background: linear-gradient(90deg, #b92ae8 0%, #6773e7 100%);
+        }
+        tbody {
+          td {
+            height: px(50);
+            width: px(84);
+            background: #1c2456;
           }
+        }
+      }
+    }
+
+    .破获排名 {
+      height: px(423);
+      .legend {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        width: 100%;
+        padding: 0 px(20) px(10);
+        > .first,
+        > .second {
+          display: inline-block;
+          width: px(18);
+          height: px(12);
+          background: red;
+          margin: 0 px(10);
+        }
+        .first {
+          background: linear-gradient(90deg, #2034f9 0%, #04a1ff 100%);
+        }
+        .second {
+          background: linear-gradient(90deg, #b92ae8 0%, #6773e7 100%);
         }
       }
     }
