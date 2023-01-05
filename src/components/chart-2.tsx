@@ -49,11 +49,39 @@ export const Chart2 = () => {
             name: "2021年",
             type: "bar",
             data: [42, 41, 36, 65, 35, 18, 24, 36, 40],
+            itemStyle: {
+              normal: {
+                color: new echarts.graphic.LinearGradient(0, 0, 1, 0, [
+                  {
+                    offset: 0,
+                    color: "#2034f9",
+                  },
+                  {
+                    offset: 1,
+                    color: "#04a1ff",
+                  },
+                ]),
+              },
+            },
           },
           {
             name: "2022年",
             type: "bar",
             data: [49, 57, 36, 55, 30, 12, 20, 39, 48],
+            itemStyle: {
+              normal: {
+                color: new echarts.graphic.LinearGradient(0, 0, 1, 0, [
+                  {
+                    offset: 0,
+                    color: "#b92ae8",
+                  },
+                  {
+                    offset: 1,
+                    color: "#6773e7",
+                  },
+                ]),
+              },
+            },
           },
         ],
       })
