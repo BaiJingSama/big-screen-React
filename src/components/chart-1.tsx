@@ -24,6 +24,11 @@ export const Chart1 = () => {
             "郫都区",
           ],
           axisTick: { show: false },
+          axisLine: {
+            lineStyle: {
+              lineStyle: { color: "#083B70" },
+            },
+          },
           axisLabel: {
             fontSize: px(12),
             formatter(val) {
