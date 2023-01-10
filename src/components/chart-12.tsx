@@ -9,7 +9,7 @@ export const Chart12 = () => {
     { value: 0.08, name: "武侯大道" },
     { value: 0.06, name: "人民南路" },
     { value: 0.11, name: "天府大道" },
-    { value: 0.09, name: "城北快速通道" },
+    { value: 0.09, name: "货运大道" },
     { value: 0.12, name: "金沙路" },
     { value: 0.06, name: "人民北路" },
     { value: 0.08, name: "科华路" },
