@@ -47,6 +47,7 @@
       box-shadow: 0 0 2px 0 #0f3361, inset 0 0 2px 0 #0f3361;
       background: #0f113a;
       &::before {
+        pointer-events: none;
         content: "";
         position: absolute;
         left: 0;
@@ -139,8 +140,7 @@
       display: flex;
       flex-direction: column;
     }
-    .chart13 {
-    }
+
     .年龄段 {
       display: flex;
       flex-direction: column;
