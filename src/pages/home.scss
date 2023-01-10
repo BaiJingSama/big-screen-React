@@ -121,7 +121,7 @@
         text-shadow: 0 0 px(3) white;
       }
       .charts {
-        width: 100px;
+        width: 100%;
         flex: 1;
         display: flex;
       }
@@ -139,9 +139,6 @@
       flex-direction: column;
       height: px(363);
       > .charts {
-        width: 100%;
-        flex: 1;
-        display: flex;
         padding: px(30);
       }
       &-图1,
@@ -157,6 +154,7 @@
           height: px(40);
           display: flex;
           flex-wrap: wrap;
+          padding-right: px(10);
           align-items: center;
           justify-content: center;
           > span {
