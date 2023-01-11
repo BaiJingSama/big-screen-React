@@ -2,12 +2,40 @@ import React, { useEffect, useRef } from "react";
 import * as echarts from "echarts";
 import { createEchartOptions } from "../shared/create-echart-options";
 import { px } from "../shared/px";
+import { getRandom } from "../shared/getRandom";
 
 export const Chart3 = () => {
   const divRef = useRef(null);
+  const myChart = useRef(null);
+  const data = [
+    { name: 2014 },
+    { name: 2015 },
+    { name: 2016 },
+    { name: 2017 },
+    { name: 2018 },
+    { name: 2019 },
+    { name: 2020 },
+    { name: 2021 },
+    { name: 2022 },
+  ];
   useEffect(() => {
-    var myChart = echarts.init(divRef.current);
-    myChart.setOption(
+    setInterval(() => {
+      const newData = [
+        { name: 2014 },
+        { name: 2015 },
+        { name: 2016 },
+        { name: 2017 },
+        { name: 2018 },
+        { name: 2019 },
+        { name: 2020 },
+        { name: 2021 },
+        { name: 2022 },
+      ];
+      setChart(newData);
+    }, 2000);
+  }, []);
+  const setChart = (data) => {
+    myChart.current.setOption(
       createEchartOptions({
         legend: {
           bottom: px(10),
@@ -25,7 +53,7 @@ export const Chart3 = () => {
         xAxis: {
           type: "category",
           boundaryGap: false,
-          data: [2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022],
+          data: data.map((i) => i.name),
           splitLine: { show: true, lineStyle: { color: "#073E78" } },
           axisTick: { show: false },
           axisLine: { show: false },
@@ -43,37 +71,52 @@ export const Chart3 = () => {
           {
             name: "抢劫",
             type: "line",
-            data: [
-              0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09,
-            ].reverse(),
+            data: data
+              .map((i) => {
+                i.抢劫 = Math.random() - 0.3;
+                return i.抢劫;
+              })
+              .reverse(),
           },
           {
             name: "醉驾",
             type: "line",
-            data: [
-              0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09, 0.1,
-            ].reverse(),
+            data: data
+              .map((i) => {
+                i.醉驾 = Math.random() - 0.25;
+                return i.醉驾;
+              })
+              .reverse(),
           },
           {
             name: "盗窃",
             type: "line",
-            data: [
-              0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09, 0.1, 0.11,
-            ].reverse(),
+            data: data
+              .map((i) => {
+                i.盗窃 = Math.random() - 0.2;
+                return i.盗窃;
+              })
+              .reverse(),
           },
           {
             name: "故意杀人",
             type: "line",
-            data: [
-              0.04, 0.05, 0.06, 0.07, 0.08, 0.09, 0.1, 0.11, 0.12,
-            ].reverse(),
+            data: data
+              .map((i) => {
+                i.故意杀人 = Math.random() - 0.15;
+                return i.故意杀人;
+              })
+              .reverse(),
           },
           {
             name: "故意伤人",
             type: "line",
-            data: [
-              0.05, 0.06, 0.07, 0.08, 0.09, 0.1, 0.11, 0.12, 0.13,
-            ].reverse(),
+            data: data
+              .map((i) => {
+                i.故意伤人 = Math.random() - 0.35;
+                return i.故意伤人;
+              })
+              .reverse(),
           },
         ].map((obj) => ({
           ...obj,
@@ -83,6 +126,10 @@ export const Chart3 = () => {
         })),
       })
     );
+  };
+  useEffect(() => {
+    myChart.current = echarts.init(divRef.current);
+    setChart(data);
   }, []);
 
   return (

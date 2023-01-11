@@ -3,26 +3,44 @@ import * as echarts from "echarts";
 import { px } from "../shared/px";
 import { baseEchartOptions } from "../shared/base-echart-options";
 import { createEchartOptions } from "../shared/create-echart-options";
+import { getRandom } from "../shared/getRandom";
 
 export const Chart1 = () => {
   const divRef = useRef(null);
+  const myChart = useRef(null);
+  const data = [
+    { name: "武侯区" },
+    { name: "金牛区" },
+    { name: "高新区" },
+    { name: "成华区" },
+    { name: "锦江区" },
+    { name: "双流区" },
+    { name: "新都区" },
+    { name: "温江区" },
+    { name: "郫都区" },
+  ];
   useEffect(() => {
-    var myChart = echarts.init(divRef.current);
-    myChart.setOption(
+    setInterval(() => {
+      const newData = [
+        { name: "武侯区" },
+        { name: "金牛区" },
+        { name: "高新区" },
+        { name: "成华区" },
+        { name: "锦江区" },
+        { name: "双流区" },
+        { name: "新都区" },
+        { name: "温江区" },
+        { name: "郫都区" },
+      ];
+      setChart(newData);
+    }, 2000);
+  }, []);
+  const setChart = (data) => {
+    myChart.current.setOption(
       createEchartOptions({
         ...baseEchartOptions,
         xAxis: {
-          data: [
-            "武侯区",
-            "金牛区",
-            "高新区",
-            "成华区",
-            "锦江区",
-            "双流区",
-            "龙泉驿区",
-            "温江区",
-            "郫都区",
-          ],
+          data: data.map((i) => i.name),
           axisTick: { show: false },
           axisLine: {
             lineStyle: {
@@ -51,11 +69,18 @@ export const Chart1 = () => {
         series: [
           {
             type: "bar",
-            data: [100, 57, 36, 150, 30, 12, 24, 36, 48],
+            data: data.map((i) => {
+              i.value = getRandom(20, 100);
+              return i.value;
+            }),
           },
         ],
       })
     );
+  };
+  useEffect(() => {
+    myChart.current = echarts.init(divRef.current);
+    setChart(data);
   }, []);
   return (
     <div className="bordered 管辖统计">

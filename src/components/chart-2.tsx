@@ -9,47 +9,31 @@ export const Chart2 = () => {
   const divRef = useRef(null);
   const myChart = useRef(null);
   const data = [
-    { name: "武侯区公安局", 2021: 5, 2022: 3 },
-    { name: "金牛区公安局", 2021: 1, 2022: 4 },
-    { name: "高新区公安局", 2021: 3, 2022: 5 },
-    { name: "成华区公安局", 2021: 1, 2022: 1 },
-    { name: "锦江区公安局", 2021: 4, 2022: 8 },
-    { name: "双流区公安局", 2021: 5, 2022: 4 },
-    { name: "新都区公安局", 2021: 6, 2022: 5 },
-    { name: "郫都区公安局", 2021: 7, 2022: 6 },
+    { name: "武侯区公安局" },
+    { name: "金牛区公安局" },
+    { name: "高新区公安局" },
+    { name: "成华区公安局" },
+    { name: "锦江区公安局" },
+    { name: "双流区公安局" },
+    { name: "新都区公安局" },
+    { name: "郫都区公安局" },
   ];
   useEffect(() => {
     setInterval(() => {
       const newData = [
-        {
-          name: "武侯区公安局",
-        },
-        {
-          name: "金牛区公安局",
-        },
-        {
-          name: "高新区公安局",
-        },
-        {
-          name: "成华区公安局",
-        },
-        {
-          name: "锦江区公安局",
-        },
-        {
-          name: "双流区公安局",
-        },
-        {
-          name: "新都区公安局",
-        },
-        {
-          name: "郫都区公安局",
-        },
+        { name: "武侯区公安局" },
+        { name: "金牛区公安局" },
+        { name: "高新区公安局" },
+        { name: "成华区公安局" },
+        { name: "锦江区公安局" },
+        { name: "双流区公安局" },
+        { name: "新都区公安局" },
+        { name: "郫都区公安局" },
       ];
-      x(newData);
-    }, 3000);
+      setChart(newData);
+    }, 2000);
   }, []);
-  const x = (data) => {
+  const setChart = (data) => {
     myChart.current.setOption(
       createEchartOptions({
         ...baseEchartOptions,
@@ -125,9 +109,10 @@ export const Chart2 = () => {
       })
     );
   };
+
   useEffect(() => {
     myChart.current = echarts.init(divRef.current);
-    x(data);
+    setChart(data);
   }, []);
   return (
     <div className="bordered 破获排名">
