@@ -71,11 +71,11 @@ export const Chart6 = () => {
         <div ref={divRef} className="chart" />
         <div className="legend bordered">
           <span className="icon" style={{ background: colors["甘肃省"] }} />
-          甘肃籍
+          寒国籍
           <span className="icon" style={{ background: colors["四川省"] }} />
-          四川籍
+          漂亮国籍
           <span className="icon" style={{ background: colors["青海省"] }} />
-          青海籍
+          旭日籍
         </div>
         <div className="notes">此地图仅显示了中国的部分区域</div>
       </div>
